@@ -11,6 +11,7 @@
         "intervention/image": "^2.7",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
+        "laravel/socialite": "^5.10",
         "laravel/tinker": "^2.8",
         "spatie/laravel-permission": "5.8.0",
         "yajra/laravel-datatables": "^10.1"
