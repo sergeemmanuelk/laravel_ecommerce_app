@@ -36,9 +36,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
     @if($errors->any())
-    @foreach($errors->all() as $error)
-    toastr.error("{{ $error }}")
-    @endforeach
+        @foreach($errors->all() as $error)
+            toastr.error("{{ $error }}")
+        @endforeach
     @endif
 </script>
 <!--main/custom js-->
