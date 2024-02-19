@@ -1,13 +1,18 @@
 <?php
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminVendorProfileController;
+use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ChildCategoryController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductImageGalleryController;
+use App\Http\Controllers\Backend\ProductVariantController;
+use App\Http\Controllers\Backend\ProductVariantItemController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\SliderController;
-use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\SubCategoryController;
-use App\Http\Controllers\Backend\ChildCategoryController;
-use App\Http\Controllers\Backend\BrandController;
-use App\Http\Controllers\Backend\AdminVendorProfileController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
@@ -38,3 +43,23 @@ Route::resource('brand', BrandController::class);
 
 /** Vendor Profile routes **/
 Route::resource('vendor-profile', AdminVendorProfileController::class);
+
+/** Product routes **/
+Route::get('product/get-subcategories', [ProductController::class, 'getSubCategories'])->name('product.get-subcategories');
+Route::get('product/get-childcategories', [ProductController::class, 'getChildCategories'])->name('product.get-childcategories');
+Route::put('product/change-status', [ProductController::class, 'changeStatus'])->name('product.change-status');
+Route::resource('products', ProductController::class);
+
+Route::resource('product-image-gallery', ProductImageGalleryController::class);
+
+Route::put('product-variant/change-status', [ProductVariantController::class, 'changeStatus'])->name('product-variant.change-status');
+Route::resource('product-variant', ProductVariantController::class);
+
+Route::put('product-variant-item/change-status', [ProductVariantItemController::class, 'changeStatus'])->name('product-variant-item.change-status');
+Route::get('product-variant-item/product/{productId}/variant/{variantId}', [ProductVariantItemController::class, 'index'])->name('product-variant-item.index');
+Route::get('product-variant-item/product/{productId}/variant/{variantId}/create', [ProductVariantItemController::class, 'create'])->name('product-variant-item.create');
+Route::post('product-variant-item', [ProductVariantItemController::class, 'store'])->name('product-variant-item.store');
+Route::get('product-variant-item/{variantItemId}/edit', [ProductVariantItemController::class, 'edit'])->name('product-variant-item.edit');
+Route::put('product-variant-item/{variantItemId}', [ProductVariantItemController::class, 'update'])->name('product-variant-item.update');
+Route::delete('product-variant-item/{variantItemId}', [ProductVariantItemController::class, 'destroy'])->name('product-variant-item.destroy');
+

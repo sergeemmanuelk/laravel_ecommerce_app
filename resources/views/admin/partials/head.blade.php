@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="{{ asset('backend/css/bootstrap-iconpicker.min.css') }}">
+<link rel="stylesheet" href="{{ asset('backend/modules/bootstrap-daterangepicker/daterangepicker.css') }}">
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
